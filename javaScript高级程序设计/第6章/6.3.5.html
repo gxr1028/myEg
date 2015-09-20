@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+寄生式继承
+	<script>
+	function object (o) {
+		function F(){};
+		F.prototype=o;
+		;
+		return new F();
+	}
+	function creatAnother (original) {
+		var clone=object(original);
+		clone.sayHi=function () {
+			console.log("Hi");
+		};
+		return clone;
+	}
+
+	var person={
+		name:'Gxr',
+		friends:['no1','no2','no3']
+	};
+	var anotherPerson=creatAnother(person);
+	anotherPerson.sayHi();//Hi
+	anotherPerson.friends.push('no4');
+	console.log(person.friends);
+	</script>
+</body>
+</html>

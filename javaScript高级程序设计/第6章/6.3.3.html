@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	组合继承[!!!常用]  6.3.1-6.3.3 构造函数之间的继承
+	<script>
+	function SuperType (name) {
+		this.name=name;
+		this.colors=['red','blue','green'];
+	}
+	SuperType.prototype.sayName=function () {
+		console.log(this.name);
+	}
+	function SubType (name,age) {
+
+		// SuperType.call(this,'我是传递给父类的参数');
+		SuperType.call(this,name);
+		this.age=age;
+	}
+	//书本上的是:SubType.prototype=new SuperType();
+	SubType.prototype=SuperType.prototype; //**只继承原型就可以(自己觉得的)
+	SubType.prototype.constructor=SubType;
+	SubType.prototype.sayAge=function(){
+		console.log(this.age);
+	}
+	var instancel=new SubType('Gxr',20);
+	instancel.colors.push('black');	//["red", "blue", "green", "black"]
+	instancel.sayAge(); //20
+	instancel.sayName(); //Gxr
+
+	var instancel2=new SubType('Gxr2',22);
+	console.log(instancel2.colors); //["red", "blue", "green"]
+	instancel2.sayAge();  //22
+	instancel2.sayName(); //Gxr2
+
+	</script>
+</body>
+</html>

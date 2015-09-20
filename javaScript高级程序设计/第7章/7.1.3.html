@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	静态私有变量
+	<script>
+	(function(){
+		// 私有变量和方法
+		var privateVariable=10;
+		function privateFunction(){
+			return false;
+		}
+		MyObj=function(){};
+		MyObj.prototype.publicMethod=function(){
+			privateVariable++;
+			return privateFunction();
+		}
+	})();
+	(function(){
+		var name="";
+		Person=function(value){
+			name=value;
+		};
+		Person.prototype.getName=function(){
+			return name;
+		};
+		Person.prototype.setName=function(value){
+			return name=value;
+		};
+
+	})();
+	var person1=new Person('Nicholas');
+	console.log(person1.getName());  //Nicholas
+	person1.setName('Gxr'); 
+	console.log(person1.getName()); //Gxr
+
+	var person2=new Person('Michael');
+	console.log(person1.getName()); //Michael
+console.log(person2.getName());  //Michael
+	</script>
+</body>
+</html>

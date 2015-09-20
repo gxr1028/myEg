@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	// function factorial (num) {
+	// 	if(num<=1){
+	// 		return 1;
+	// 	}else{
+	// 		return num*factorial(num-1);
+	// 	}
+	// }
+	// var anotherFactorial=factorial;
+	// factorial=null;
+	// console.log(anotherFactorial(4)) //此时会出错 因为factorial 内部factorial被调用 此时factorial 是null
+	// // arguments.callee(num-1) 此时可以解决
+
+	// ！！最好是通过命名函数解决(不管是不是在严格模式下都可以成功)
+	var factorial=function f(num){
+		if(num<=1){
+			return 1;
+		}else{
+			return num*f(num-1);
+		}
+	}
+	var anotherFactorial=factorial;
+	factorial=null;
+	console.log(anotherFactorial(4));//成功
+	</script>
+</body>
+</html>

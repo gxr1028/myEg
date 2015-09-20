@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+私有变量
+	<script>
+	function MyObject () {
+		// 私有变量和方法
+		var privateVariable=10;
+
+		function privateFunction () {
+			return false;
+		}
+		//特权方法
+		this.publicMethod=function(){
+			privateVariable++;
+			return privateFunction
+		}
+	}
+	// 只有通过特权方法才能访问里面的私有变量和方法
+	</script>
+</body>
+</html>

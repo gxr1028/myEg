@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	function creatObj (o) {
+		function F(){};
+		F.prototype=o;
+		return new F();
+	}
+
+	var gxr1={
+		name:'gxr1',
+		age:12
+	}
+	// console.log(gxr1.prototype);
+	var gxr2=creatObj(gxr1);
+	</script>
+</body>
+</html>

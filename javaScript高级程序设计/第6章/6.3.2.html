@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+借用构造函数[继承]
+	<script>
+	function SuperType(){
+		this.colors=['red','blue','green'];
+	}
+	function SubType(){
+		//继承了SuperType
+		SuperType.call(this);
+	}
+	var instancel=new SubType();
+	instancel.colors.push("black"); 
+	console.log(instancel.colors); //red,blue,green,black
+	var instancel2=new SubType();
+	console.log(instancel2.colors); //red,blue,green
+//通过这种继承还可以给 父类传递参数
+
+function SuperType2 (name) {
+	this.name=name
+}
+function SubType2 () {
+	SuperType2.call(this,"我是向父类传递的参数");
+	this.age=29;
+}
+var instance2=new SubType2();
+console.log(instance2.name); //我是向父类传递的参数
+console.log(instance2.age); //29
+
+
+借用构造函数 无法继承父类原型的属性方法 所以也是少用的
+	</script>
+</body>
+</html>
