@@ -1,4 +1,5 @@
-
-| 简要说明 | 示例代码 | 备注说明|
-| 简要说明 | 示例代码 | 备注说明|
-| 简要说明 | 示例代码 | 备注说明|
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
