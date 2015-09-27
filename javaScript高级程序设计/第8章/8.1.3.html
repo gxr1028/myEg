@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+Window对象:
+	<input type="button" id="Btn" value="打开">
+	<input type="button" id="Btn2" value="各种系统弹窗">
+
+
+	<script type="text/javascript">
+
+	// 浏览器窗口离显示器屏幕的距离
+	var leftPos=(window.screenLeft=="number")?window.screenLeft:window.screenX;
+	var topPos=(window.screenTop=="number")?window.screenTop:window.screenY;
+	console.log(leftPos+" "+topPos);
+
+	//可视窗口的大小
+	var pageWidth=window.innerWidth,
+		pageHeight=window.innerHeight;
+		console.log(typeof pageWidth!="number");
+	if(typeof pageWidth!="number"){
+		if(document.compatMode=="CSS1Compat"){ //检查是否是标准模式
+			pageWidth=document.documentElement.clientWidth;
+			pageHeight=document.documentElement.clientHeight;
+		}else{
+			pageWidth=document.body.clientWidth;
+			pageHeight=document.body.clientHeight;
+		}
+	}
+	console.log(pageWidth+" "+pageHeight);
+
+
+	// open 打开窗口
+	document.getElementById("Btn").addEventListener('click',function(){
+		console.log("x");
+		window.open('http://www.baidu.com/','_blank');//从新窗口打开
+	})
+	
+
+	//系统弹窗
+	document.getElementById("Btn2").addEventListener('click',function  () {
+		alert("弹窗1(确定)");
+		confirm('弹窗2(确定/取消)');
+		prompt("弹窗3(输入)");
+	})
+
+
+
+//超时调用（执行一次 超过1秒时 执行）
+var setTime=setTimeout(function(){
+	console.log('我是超时调用');
+},1000); 
+// clearTimeout(setTime); //清除 超时计时器
+//间歇调用 (执行无数次，每个1秒执行一次)
+var setInt=setInterval(function(){
+	console.log('我是间歇调用');
+},1000);
+// clearInterval(setInt) //清除 间歇计时器
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				window.location='http://www.baidu.com'  【跳转页面】
+
+			</td>
+		</tr>
+		<tr>
+			<td>
+				window.location.assign('http://www.baidu.com')  【跳转页面】
+				
+			</td>
+		</tr>
+		<tr>
+			<td>
+				window.location.hash='#abc'  【跳hash】
+			</td>
+		</tr>
+		<tr>
+			<td>
+				window.location.search='?q=abc' 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				window.location.hostname='www.baidu.com' 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				window.location.pathname='mydir' 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				window.location.port=8080
+			</td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+	// 使用location  assign可跳转url 并向历史记录添加一条数据
+	// window.location='xxx'  恒等  document.location='xxx'
+	//  window.location 幕后也会调用assign方法
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<script type="text/javascript">
+// location对象:window.location和document.location 引用的是同一个对象
+// 属性:
+// 如 http://www.wrox.com:80/wileyCDA/1.html?q=javascript#abc
+// hash属性返回 #abc 返回url的hash(#号后跟0或多个字符)  //如果没有则返回空字符串
+// host属性返回 www.wrox.com:80      返回 服务器名称和端口号(如果有)
+// hostname属性返回 www.wrox.com    返回不带端口号的服务器名称
+// href属性返回 http://www.wrox.com    返回当前页面完整URL 而location对象toString()也返回该值
+// pathname属性返回  /wileyCDA/1.html   返回url目录+文件名 没有?*** 也没有#***
+// port属性 返回  80   返回url指定的端口号
+// search属性  ?1=javascript　返回url的查询查询字符串 以问号开头
+// protocol属性 http:  返回 协议
+console.log(window.location.hash);
+console.log(window.location.host); 
+console.log(window.location.hostname);
+console.log(window.location.href);
+console.log(window.location.pathname);
+console.log(window.location.port);
+console.log(window.location.search);
+	</script>
+</body>
+</html>
