@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	navigator对象【浏览器信息对象】
+<script type="text/javascript">
+	console.log(window.navigator.appCodeName); //浏览器名称通常都是Mozilla，就算不是也会显示Mozilla
+	console.log(window.navigator.appName); //完整浏览器名称
+
+	// console.log(window.navigator.appMinorVersion); ///次版信息【ie才支持】
+	console.log(window.navigator.appVersion); //浏览器的版本，一般不与实际浏览器版本对应
+	console.log(window.navigator.cookieEnabled)//表示是否启用cookie
+
+	console.log(window.navigator.javaEnabled()) //表示当前浏览器是否启用java
+	console.log(window.navigator.language);///浏览器的主语言(ie不支持)
+
+	console.log(window.navigator.mimeTypes); //在浏览器中注册的MIME类型数组
+	console.log(window.navigator.platform);//浏览器所在的系统平台
+	console.log(window.navigator.plugins); //浏览器安装的插件信息数组
+	console.log(window.navigator.userAgent);///浏览器的用户代理字符串
+</script>
+</body>
+</html>

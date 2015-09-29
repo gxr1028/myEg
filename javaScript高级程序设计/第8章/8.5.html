@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	history对象:历史记录对象
+	<script type="text/javascript">
+	// history 方法
+	// go()方法
+	// 后退页面(如果历史记录里有)
+	// window.history.go(-1);
+	// window.history.go(2);
+	//后退(历史记录中的前进后退) ==>可用来代替go方法
+	// window.history.back();
+	// 前进(历史记录中的前进后退) ==>可用来代替go方法
+	// window.history.forward();
+
+	//跳到最近历史记录中的百度网站
+	// window.history.go('www.baidu.com');
+	console.log(window.history.length)
+	if(window.history.length==1){
+		console.log('没有历史记录 这是第一个记录')
+	}
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<a href="xishui://hello wordddd">xishui://hello</a>
+	<script type="text/javascript">
+// 检查浏览器插件
+// 因为ie不支持Netscape式的插件，所以在ie下无效
+function hasPlugin(name){
+	name=name.toLowerCase();
+	for(var i=0;i<navigator.plugins.length;i++){
+		if(navigator.plugins[i].name.toLowerCase().indexOf(name)>-1){
+			return true;
+		}
+	}
+	return false;
+}
+
+function hasIEPlugin (name) {
+	try{
+		new ActiveXObject(name);
+		return true;
+	}catch(ex){
+		return false;
+	}
+}
+
+// ie下的插件名是COM标识
+//检查所有浏览器中的Flash
+function hasFlash () {
+	var result=hasPlugin('Flash');
+	if(!result){
+		result=hasIEPlugin('ShockwaveFlash.ShockwaveFlash')
+	}
+	return result;
+}
+
+alert(hasFlash());
+	</script>
+</body>
+</html>
