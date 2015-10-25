@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	把NodeList对象转为真正数组(!!IE8不支持 只能通过手动枚举所有成员)；
+	<script type="text/javascript">
+	function converToArray(nodesList){
+		var array=null;
+		try{
+			array=Array.prototype.slice.call(nodesList,0); //IE8以下不行
+		}catch(ex){
+			array=new Array();
+			for(var i=0,len=nodesList.length;i<len;i++){
+				array.push(nodesList[i]);
+			}
+		}
+		return array;
+	}
+	</script>
+</body>
+</html>

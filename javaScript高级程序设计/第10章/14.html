@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无限循环</title>
+</head>
+<body>
+<h1>NodeList 、 NameNodeMap和HTMLCollection这三个集合会实时更新dom结构有变化就更新（可能会造成无限循环）</h1>
+	<div>1</div>
+	<script type="text/javascript">
+	var divs=document.getElementsByTagName('div'),i,div;
+	for(i=0;i<divs.length;i++){
+		div=document.createElement('div');
+		div.appendChild(document.createTextNode(i));
+		document.body.appendChild(div);
+		if(i==1000){
+			break;
+		}
+	}
+	// 解决方案:
+	// 在循环前把length起来 var len = divs.length
+	</script>
+
+</body>
+</html>

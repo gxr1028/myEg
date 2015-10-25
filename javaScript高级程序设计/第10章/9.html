@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<pre>
+		分割文本节点
+		与normalize相反splitText()
+		这个方法会将一个文本节点分割成两个文本节点
+	</pre>
+	<script type="text/javascript">
+	var element=document.createElement('div');
+	element.className='message';
+	var textNode=document.createTextNode('Hello world!');
+	element.appendChild(textNode);
+
+	document.body.appendChild(element);
+	var newTextNode=textNode.splitText(5); //返回新文本节点
+	console.log(element.firstChild.nodeValue);  //"Hello"
+	console.log(newTextNode.nodeValue);  //" world"
+	console.log(element.childNodes.length) //2
+	</script>
+</body>
+</html>

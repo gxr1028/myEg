@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<pre>
+	文本节点规范化
+	不要两个文本节点
+	element.normalize()方法【某些情况下 normalize 方法会 导致ie6崩溃】
+	如果空白文本节点则删除， 如果两个文本节点相邻 则合并成一个文本节点
+</pre>
+	<script type="text/javascript">
+
+	var element=document.createElement('div');
+	element.className='message';
+
+	var textNode=document.createTextNode('Hello world!');
+	element.appendChild(textNode);
+
+	var anotherTextNode=document.createTextNode('yippee!');
+	element.appendChild(anotherTextNode);
+	document.body.appendChild(element);
+	console.log(element.childNodes.length);  //2 (两个文本节点)
+
+	element.normalize();//如果空白文本节点 则删除，如果两个文本节点相邻 则合并成一个文本节点
+	console.log(element.childNodes.length); //1
+	console.log(element.firstChild.nodeValue); //
+
+	</script>
+</body>
+</html>

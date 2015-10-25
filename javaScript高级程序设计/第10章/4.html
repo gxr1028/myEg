@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<div id="gxrId" class="gxrClass" data-gxr="data-gxr" name="gxrtxt">
+	因为IE7以下的会返回HTML元素中所有可能的特性，包括没指定的特性<br/>
+	可能会返回100多个特性 ，每个节点都有 specified 属性  这个属性为true，则html中指定的相应特性，要么是通过setAttribute设置
+</div>
+<script type="text/javascript">
+
+	function outputAttributes(element){
+		var paris=new Array(),
+		attrName,
+		attrValue,
+		i,
+		len;
+		for(i=0,len=element.attributes.length;i<len;i++){
+			attrName=element.attributes[i].nodeName;
+			attrValue=element.attributes[i].nodeValue;
+			if(element.attributes[i].specified){
+				paris.push(attrName+"=\""+attrValue+"\"");
+			}
+		}
+		return {arr:paris,str:paris.join(" ")};
+	}
+var elementDiv=document.getElementById('gxrId');
+console.log(outputAttributes(elementDiv).str);
+
+console.log(outputAttributes(elementDiv).arr);
+</script>	
+</body>
+</html>

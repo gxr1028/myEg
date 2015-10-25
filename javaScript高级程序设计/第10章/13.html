@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态添加样式</title>
+</head>
+<body>
+	<input class="btn" type="button" value="创建"></input>
+	<input type="button" class="btn2" value="行内脚本创建"></input>
+
+	<script type="text/javascript">
+	function getEle(ele,attName,attVal){
+		var inputList=document.getElementsByTagName(ele),
+			inputItem,i,len=inputList.length,attrClass;
+		for(i=0;i<len;i++)	{
+			attrClass=inputList[i].getAttribute(attName);
+			if(attrClass==attVal){
+				inputItem=inputList[i];
+			}
+		}
+		return inputItem;
+	}
+
+	function eventListen(ele,event,fn){
+		try{
+			ele.addEventListener(event,fn);
+		}catch(e){
+			console.log('ie8以下');
+			ele.attachEvent('on'+event,fn);
+		}
+	}
+	var btn1=getEle('input','class','btn');
+	var btn2=getEle('input','class','btn2');
+
+	eventListen(btn1,'click',function(){
+		var link=document.createElement('link');
+		link.type='text/css';
+		link.rel='stylesheet';
+		link.href='./style.css';
+		var head=document.getElementsByTagName('head')[0];
+		head.appendChild(link);
+	});
+
+	eventListen(btn2,'click',function(){
+		var styleEle=document.createElement('style');
+		styleEle.type='text/css';
+		var styleVal='body{background-color:green;}'
+		try{
+			styleEle.appendChild(document.createTextNode(styleVal));
+		}catch(e){
+			//ie8以下
+			styleEle.styleSheet.cssText=styleVal;
+		}
+		var head=document.getElementsByTagName('head')[0];
+		head.appendChild(styleEle);
+	})
+	
+	</script>
+</body>
+</html>

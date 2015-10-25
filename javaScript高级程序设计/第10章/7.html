@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<p>我是文本节点</p>
+<input type="text" class="txt">
+	<button class="btn">文本节点修改</button>
+	<button class="btn2">创建插入文本节点</button>
+	<script type="text/javascript">
+	var ptxt=document.getElementsByTagName('p')[0].firstChild;
+	var txt=document.querySelector('.txt');
+	var btn=document.querySelector('.btn');
+	btn.addEventListener('click',function(){
+		console.log('x');
+		ptxt.nodeValue=txt.value;
+	})
+	var btn2=document.querySelector('.btn2');
+	btn2.addEventListener('click',function(){
+		console.log(ptxt.parentNode);
+		var newTxt=document.createTextNode('我是新建的文本节点');
+		ptxt.parentNode.appendChild(newTxt);
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态添加脚本</title>
+</head>
+<body>
+	<input class="btn" type="button" value="创建"></input>
+	<input type="button" class="btn2" value="行内脚本创建"></input>
+
+	<script type="text/javascript">
+	// var inputList=document.getElementsByTagName('input'),
+	// 	inputItem,i,len=inputList.length,attrClass;
+	// for(i=0;i<len;i++){
+	// 	attrClass=inputList[i].getAttribute('class');
+	// 	if(attrClass=='btn'){
+	// 		inputItem=inputList[i];
+	// 	}
+	// }
+	/**
+	 * 获取class的元素
+	 * ele元素，属性名，属性值
+	 */
+	function getEle(ele,attName,attVal){
+		var inputList=document.getElementsByTagName(ele),
+			inputItem,i,len=inputList.length,attrClass;
+		for(i=0;i<len;i++)	{
+			attrClass=inputList[i].getAttribute(attName);
+			if(attrClass==attVal){
+				inputItem=inputList[i];
+			}
+		}
+		return inputItem;
+	}
+	var inputBnt1=getEle('input','class','btn');
+	var inputBtn2=getEle('input','class','btn2');
+	inputBnt1.addEventListener('click',function(){
+		var scriptEle=document.createElement('script');
+		scriptEle.type='text/javascript';
+		scriptEle.src='./1.js';
+		document.body.appendChild(scriptEle);
+	});
+	inputBtn2.addEventListener('click',function(){
+		var scriptEle=document.createElement('script');
+		scriptEle.type='text/javascript';		
+		var code='function sc(){console.log("行内脚本")}';	
+		// try{
+			scriptEle.appendChild(document.createTextNode(code));
+			//ie下会出错 ie script是一个特殊的元素 不可插入
+		// } catch (error) {
+		// 	//ie下需通过
+		// 	console.log('IE下');
+		// 	scriptEle.text=code;
+		// }
+		document.body.appendChild(scriptEle);
+		 sc();
+	})
+
+	</script>
+</body>
+</html>
