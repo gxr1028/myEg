@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+<button>A按钮</button>
+<button>B按钮</button>
+	<script type="text/javascript">
+	setInterval(a,2000)
+	function a(){
+		console.log(document.activeElement)
+	}
+window.onload=function(){
+	if(document.readyState=='complete'){
+		console.log('页面加载完毕');
+	}
+
+	
+}
+	</script>
+</body>
+</html>

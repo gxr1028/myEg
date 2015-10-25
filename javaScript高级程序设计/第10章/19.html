@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<button data-name="gxr" data-age="12">data-*</button>
+	<script type="text/javascript">
+	var btn=document.getElementsByTagName('button')[0];
+	console.log(btn.dataset.name)
+	console.log(btn.dataset.age)
+	btn.addEventListener('click',function(){
+		btn.dataset.name='gxr2';
+		btn.dataset.age=111;
+	})
+
+	</script>
+</body>
+</html>
